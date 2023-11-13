@@ -1,10 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-int main(){
-int length;
-scanf("%i", &length);
-int office = pow(2,length);
-printf("%i",office);
-return 0;
-}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Versión mejorada</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<main>
+
+6
+
+<h1>Laboratorio de Github</h1>
+<div class="card-panel">
+<span class="blue-text">Tarjeta</span>
+</div>
+</main>
+</body>
+</html>
