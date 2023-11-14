@@ -1,34 +1,23 @@
-from os.path import dirname
-from os.path import join
-import setuptools
+# Draw a title and some text to the app:
+'''
+# This is the document title
 
+This is some _markdown_.
+'''
 
-def readme() -> str:
-    """Utility function to read the README file.
-    Used for the long_description.  It's nice, because now 1) we have a top
-    level README file and 2) it's easier to type in the README file than to put
-    a raw string in below.
-    :return: content of README.md
-    """
-    return open(join(dirname(__file__), "README.md")).read()
+import pandas as pd
+df = pd.DataFrame({'col1': [1,2,3]})
+df  # 👈 Draw the dataframe
 
+x = 10
+'x', x  # 👈 Draw the string 'x' and then the value of x
 
-setuptools.setup(
-    name="streamlit-drawable-canvas",
-    version="0.9.3",
-    author="Fanilo ANDRIANASOLO",
-    author_email="contact@andfanilo.com",
-    description="A Streamlit custom component for a free drawing canvas using Fabric.js.",
-    long_description=readme(),
-    long_description_content_type="text/markdown",
-    url="https://github.com/andfanilo/streamlit-drawable-canvas",
-    packages=setuptools.find_packages(),
-    include_package_data=True,
-    classifiers=[],
-    python_requires=">=3.6",
-    install_requires=[
-        "Pillow",
-        "numpy",
-        "streamlit >= 0.63",
-    ]
-)
+# Also works with most supported chart types
+import matplotlib.pyplot as plt
+import numpy as np
+
+arr = np.random.normal(1, 1, size=100)
+fig, ax = plt.subplots()
+ax.hist(arr, bins=20)
+
+fig  # 👈 Draw a Matplotlib chart
