@@ -1,28 +1,34 @@
-import random
-import pandas as pd
-import streamlit as st
+from os.path import dirname
+from os.path import join
+import setuptools
 
-df = pd.DataFrame(
-    {
-        "name": ["Roadmap", "Extras", "Issues"],
-        "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
-        "stars": [random.randint(0, 1000) for _ in range(3)],
-        "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],
-    }
-)
-st.dataframe(
-    df,
-    column_config={
-        "name": "App name",
-        "stars": st.column_config.NumberColumn(
-            "Github Stars",
-            help="Number of stars on GitHub",
-            format="%d ⭐",
-        ),
-        "url": st.column_config.LinkColumn("App URL"),
-        "views_history": st.column_config.LineChartColumn(
-            "Views (past 30 days)", y_min=0, y_max=5000
-        ),
-    },
-    hide_index=True,
+
+def readme() -> str:
+    """Utility function to read the README file.
+    Used for the long_description.  It's nice, because now 1) we have a top
+    level README file and 2) it's easier to type in the README file than to put
+    a raw string in below.
+    :return: content of README.md
+    """
+    return open(join(dirname(__file__), "README.md")).read()
+
+
+setuptools.setup(
+    name="streamlit-drawable-canvas",
+    version="0.9.3",
+    author="Fanilo ANDRIANASOLO",
+    author_email="contact@andfanilo.com",
+    description="A Streamlit custom component for a free drawing canvas using Fabric.js.",
+    long_description=readme(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/andfanilo/streamlit-drawable-canvas",
+    packages=setuptools.find_packages(),
+    include_package_data=True,
+    classifiers=[],
+    python_requires=">=3.6",
+    install_requires=[
+        "Pillow",
+        "numpy",
+        "streamlit >= 0.63",
+    ]
 )
