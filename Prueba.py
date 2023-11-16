@@ -5,7 +5,7 @@ import streamlit as st
 from PIL import Image
 
 st.title("Titulo: Analitica de datos")
-st.header("Este es un header")
+st.header("Este es un header xd")
 st.subheader("Este es un subheader")
 
 
