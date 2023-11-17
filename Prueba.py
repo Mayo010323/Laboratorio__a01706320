@@ -26,12 +26,27 @@ if st.checkbox("Show/Hide"):
   st.subhead("Radio Buttons")
 
 status = st.radio("Cual es su estatus",("Activo","Inactivo"))
+
 if status == "Activo":
-  st.sucess("Estas activo")
-else:
-  st.warning("Inactivo")
-  st.subheader("Selec Box")
+    st.success("Estás activo")
+else: 
+    st.warning("Inactivo")
+    st.subheader("SelectBox")
 
 occupation = st.selectbox(
-  "Tu ocupación", ["Programador","Cientifico de datos","B1","Ingeniero de datos"]
+    "Tu ocupación", ["Programador", "Científico de datos", "BI", "Ingeniero de Datos"]
 )
+
+st.write("Opción seleccionada:", occupation)
+st.subheader("MultiSelect")
+
+location = st.multiselect(
+    "Donde trabajas?",
+    ("México", "New York", "Guadalajara", "Monterrey", "Nepal", "Buenos Aires", "Caracas"),
+)
+
+st.write("Seleccionó:", len(location), "locaciones")
+st.subheader("Slider")
+
+level = st.slider("Cual es tu nivel?", 1, 5)
+st.write("Nivel:", level)
